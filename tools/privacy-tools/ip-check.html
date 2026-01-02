@@ -4,27 +4,34 @@
   <meta charset="UTF-8">
   <title>IP Address Checker | Free Privacy Tool</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Check your public IP address instantly. No tracking, no login.">
-  <style>
-    body { font-family: Arial, sans-serif; background:#f1f5f9; padding:20px; }
-    .box { max-width:600px; margin:auto; background:#fff; padding:20px; border-radius:8px; }
-    h1 { color:#0f172a; }
-    .ip { font-size:24px; font-weight:bold; color:#2563eb; }
-  </style>
+  <meta name="description" content="Check your public IP address instantly. Free privacy tool.">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
 
-<div class="box">
-  <h1>Your Public IP Address</h1>
-  <p class="ip" id="ip">Loading...</p>
-  <p>This tool shows your public IP address and helps you understand basic online privacy.</p>
+<header>
+  <h1>IP Address Checker</h1>
+  <p>Check your public IP address instantly</p>
+</header>
+
+<div class="tool-box">
+  <p>Your public IP address is:</p>
+  <div class="result" id="ip">Loading...</div>
+  <p>This tool helps you understand basic online privacy exposure.</p>
 </div>
+
+<footer>
+  Free Tool • No login • No tracking
+</footer>
 
 <script>
 fetch("https://api.ipify.org?format=json")
-  .then(r => r.json())
-  .then(d => document.getElementById("ip").innerText = d.ip);
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("ip").innerText = data.ip;
+  });
 </script>
 
 </body>
 </html>
+
